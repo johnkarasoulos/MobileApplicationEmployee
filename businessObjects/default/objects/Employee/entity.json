@@ -1,0 +1,142 @@
+{
+    "displayLabel": "Employee",
+    "fields": [
+        {
+            "displayLabel": "Id",
+            "key": true,
+            "name": "id",
+            "oid": "722754d6-7667-43ac-a2c2-261f07930cc7",
+            "required": true,
+            "type": "number",
+            "unique": true
+        },
+        {
+            "displayLabel": "Created",
+            "historyType": "timeCreated",
+            "name": "creationDate",
+            "oid": "940be148-6ece-4883-9f9d-790a507af138",
+            "type": "datetime"
+        },
+        {
+            "displayLabel": "Last Updated",
+            "historyType": "timeUpdated",
+            "name": "lastUpdateDate",
+            "oid": "8e5663dc-a374-43c2-9418-e6de797c93c3",
+            "type": "datetime"
+        },
+        {
+            "displayLabel": "Created By",
+            "historyType": "createdBy",
+            "name": "createdBy",
+            "oid": "fbe7e337-0b52-41b8-907b-a1ffdd56e9d7",
+            "type": "string"
+        },
+        {
+            "displayLabel": "Last Updated By",
+            "historyType": "updatedBy",
+            "name": "lastUpdatedBy",
+            "oid": "b273fd2a-f797-45d1-b70a-cfdf6843bf1e",
+            "type": "string"
+        },
+        {
+            "displayLabel": "Version Number",
+            "historyType": "versionNumber",
+            "name": "versionNumber",
+            "oid": "44a7c11d-b624-4946-b9f7-1df848d75760",
+            "type": "number"
+        },
+        {
+            "displayLabel": "department",
+            "name": "department",
+            "oid": "66ada770-0dbc-420a-8708-ac08abb8cf02",
+            "type": "number"
+        },
+        {
+            "displayLabel": "name",
+            "name": "name",
+            "oid": "f0824f7c-6fe0-4101-be7f-23372b2cb25d",
+            "type": "string"
+        },
+        {
+            "displayLabel": "email",
+            "name": "email",
+            "oid": "9ebd4649-6f5f-42a1-960e-c5fa72585dc1",
+            "type": "string"
+        },
+        {
+            "displayLabel": "hireDate",
+            "name": "hireDate",
+            "oid": "373af2dc-cd72-46c1-b8a7-80892c6dce65",
+            "type": "date"
+        },
+        {
+            "displayLabel": "country",
+            "name": "country",
+            "oid": "7526e2a7-75b8-490b-9cf7-af0740a928a1",
+            "type": "string"
+        },
+        {
+            "displayLabel": "salary",
+            "name": "salary",
+            "oid": "4c3e7b10-e1d5-4a6f-bd63-8d0c4d4102b6",
+            "scale": 1,
+            "type": "number"
+        },
+        {
+            "displayLabel": "picture",
+            "name": "picture",
+            "oid": "eddfa47c-bfd2-4e07-a169-5f147bf96a9b",
+            "type": "string"
+        }
+    ],
+    "hidden": false,
+    "name": "Employee",
+    "oid": "28fc0748-45e9-45f6-9480-d95a8883446c",
+    "security": {
+        "type": "local",
+        "acl": [
+            {
+                "roleId": "approle.anonymous.user",
+                "privileges": [
+                    {
+                        "name": "view",
+                        "value": true
+                    },
+                    {
+                        "name": "create",
+                        "value": true
+                    },
+                    {
+                        "name": "update",
+                        "value": true
+                    },
+                    {
+                        "name": "delete",
+                        "value": true
+                    }
+                ]
+            },
+            {
+                "roleId": "approle.authenticated.user",
+                "privileges": [
+                    {
+                        "name": "view",
+                        "value": true
+                    },
+                    {
+                        "name": "create",
+                        "value": true
+                    },
+                    {
+                        "name": "update",
+                        "value": true
+                    },
+                    {
+                        "name": "delete",
+                        "value": true
+                    }
+                ]
+            }
+        ]
+    }
+}

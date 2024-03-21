@@ -1,0 +1,12 @@
+<oj-sp-smart-search-page display-mode="mixed" page-title="Employees" page-subtitle="Search our company employees"
+  primary-action.label="Create employee" primary-action.display="on"
+  on-sp-primary-action="[[$listeners.smartSearchPageTemplateSpPrimaryAction]]">
+  <oj-input-search slot="search" id="searchEmp" value="{{ $variables.employeeSearch }}"></oj-input-search>
+  <oj-list-view data="[[$variables.employeeListSDP2]]">
+    <template slot="itemTemplate">
+      <oj-sp-list-item-template
+        columns="[[ [{ primaryText: $current.data.name, avatar: { src: $current.data.picture } }, { primaryText: $current.data.email, secondaryText: $current.data.hireDate }, { primaryText: $current.data.salary }] ]]"
+        badge.position="trailing"></oj-sp-list-item-template>
+    </template>
+  </oj-list-view>
+</oj-sp-smart-search-page>

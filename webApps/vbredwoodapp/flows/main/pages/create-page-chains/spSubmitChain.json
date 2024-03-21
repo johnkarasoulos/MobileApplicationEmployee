@@ -1,0 +1,29 @@
+{
+  "description": "Notify primary action is triggered",
+  "variables": {
+    "detail": {
+      "type": "any",
+      "input": "fromCaller",
+      "required": true
+    }
+  },
+  "root": "callSaveChain",
+  "actions": {
+    "callSaveChain": {
+      "module": "vb/action/builtin/callChainAction",
+      "parameters": {
+        "id": "spSaveChain"
+      },
+      "outcomes": {
+        "success": "navigateToPage"
+      }
+    },
+    "navigateToPage": {
+      "module": "vb/action/builtin/navigateAction",
+      "parameters": {
+        "page": "/",
+        "params": {}
+      }
+    }
+  }
+}

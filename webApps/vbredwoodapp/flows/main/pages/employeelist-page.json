@@ -1,0 +1,166 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "backgroundColor": {
+      "type": "string",
+      "defaultValue": "dark-ocean"
+    },
+    "employeeListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "businessObjects/getall_Employee",
+        "keyAttributes": "id",
+        "itemsPath": "items",
+        "responseType": "getallEmployeeResponse2"
+      }
+    },
+    "illustrationBackground": {
+      "type": "string",
+      "defaultValue": "https://static.oracle.com/cdn/fnd/gallery/2307.0.2/images/illust-welcome-banner-bg-01.png"
+    },
+    "illustrationForeground": {
+      "type": "string",
+      "defaultValue": "https://static.oracle.com/cdn/fnd/gallery/2307.0.2/images/illust-welcome-banner-fg-01.png"
+    },
+    "imageStretch": {
+      "type": "string",
+      "defaultValue": "none"
+    },
+    "mobileImage": {
+      "type": "string"
+    },
+    "oj_list_view_241630953_1SelectedId": {
+      "type": "string",
+      "defaultValue": ""
+    }
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.getallEmployeeResponse": {
+      "endpoint": "getall_Employee",
+      "service": "businessObjects",
+      "path": "response"
+    },
+    "@decorators.getallEmployeeResponse2": {
+      "endpoint": "getall_Employee",
+      "service": "businessObjects",
+      "path": "response"
+    },
+    "getallEmployeeResponse": {
+      "items": [
+        {
+          "country": "string",
+          "email": "string",
+          "hireDate": "string",
+          "id": "number",
+          "name": "string",
+          "salary": "number"
+        }
+      ]
+    },
+    "getallEmployeeResponse2": {
+      "items": [
+        {
+          "country": "string",
+          "email": "string",
+          "hireDate": "string",
+          "id": "number",
+          "name": "string",
+          "picture": "string",
+          "salary": "number"
+        }
+      ]
+    }
+  },
+  "eventListeners": {
+    "createEmployeeButtonClicked": {
+      "chains": [
+        {
+          "chain": "navigateToCreateEmployeeChain"
+        }
+      ]
+    },
+    "deleteEmployeeButtonClicked": {
+      "chains": [
+        {
+          "chain": "deleteEmployeeChain",
+          "parameters": {
+            "employeeId": "[[ $variables.oj_list_view_241630953_1SelectedId ]]"
+          }
+        }
+      ]
+    },
+    "editEmployeeButtonClicked": {
+      "chains": [
+        {
+          "chain": "navigateToEditEmployeeChain",
+          "parameters": {
+            "employeeId": "[[ $variables.oj_list_view_241630953_1SelectedId ]]"
+          }
+        }
+      ]
+    },
+    "oj_list_view_241630953_1SelectionChanged": {
+      "chains": [
+        {
+          "chain": "ojListView2416309531ChangeSelectionChain",
+          "parameters": {
+            "employeeId": "[[ $event.detail.value.key || '' ]]"
+          }
+        }
+      ]
+    },
+    "ojSpWp1SpPrimaryAction": {
+      "chains": [
+        {
+          "chain": "WelcomePageTemplateSpPrimaryActionChain"
+        }
+      ]
+    },
+    "ojSwipeActionsPerformed": {
+      "chains": [
+        {
+          "chain": "ListViewSwipeActionChain",
+          "parameters": {
+            "navigationItem": "[[$event.target.value]]",
+            "employeeId": "[[$current.key]]",
+            "rowData": "[[$current.data]]"
+          }
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-list-item-layout": {
+        "path": "ojs/ojlistitemlayout"
+      },
+      "oj-list-view": {
+        "path": "ojs/ojlistview"
+      },
+      "oj-option": {
+        "path": "ojs/ojoption"
+      },
+      "oj-sp-list-item-template": {
+        "path": "oj-sp/list-item-template/loader"
+      },
+      "oj-sp-welcome-page": {
+        "path": "oj-sp/welcome-page/loader"
+      },
+      "oj-swipe-actions": {
+        "path": "ojs/ojswipeactions"
+      },
+      "oj-toolbar": {
+        "path": "ojs/ojtoolbar"
+      }
+    }
+  },
+  "@dt": {
+    "iconClass": "vbdt-dynamic-icon-12-icoWelcomePageTemplate48Svg"
+  }
+}

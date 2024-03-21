@@ -1,0 +1,33 @@
+<div>
+  <oj-sp-simple-create-edit id="oj_ssce1" page-title="Join the team" page-subtitle="Enter details"
+    avatar="{{$page.variables.avatar}}"
+    primary-action.disabled="{{!($page.variables.primaryAlwaysOn || ($page.variables.dirtyDataFlag ? true : $page.variables.isSaved))}}"
+    contextual-info-sticky="{{ $page.variables.contextualInfoSticky }}" on-sp-cancel="[[$listeners.ojSpCancel]]"
+    on-sp-save="[[$listeners.ojSpSave]]" on-sp-go-to-parent="[[$listeners.ojSpGoToParent]]"
+    on-sp-primary-action="[[$listeners.ojSpSubmit]]" display-mode="mixed" primary-action.label="Join" 
+  >
+    <oj-validation-group slot="main" id="employee-validation-group-1777832857-1">
+      <oj-form-layout id="oj-form-layout-1777832857-1" class="oj-formlayout-full-width" label-edge="start">
+        <oj-input-text value="{{ $variables.employee.name }}" label-hint="Full Name" id="name"></oj-input-text>
+        <oj-input-date value="{{ $variables.employee.hireDate }}" label-hint="Hiring Date"
+          converter='{"type": "datetime", "options": {"pattern":"dd/MM/yyyy"}}'
+          class="oj-form-control-text-align-start oj-form-control-full-width"></oj-input-date>
+        <oj-input-text virtual-keyboard="email"
+          validators='[{"type":"regexp", "options":{"pattern":"([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})", "hint":"Enter an email address.", "messageDetail": "Value must be of the form xxx@xxx.xx"}}]'
+          label-hint="Email" value="{{ $variables.employee.email }}"></oj-input-text>
+        <oj-input-number value="{{ $variables.employee.salary }}" label-hint="Employee Salary" virtual-keyboard="number"
+          converter='{"options":{"style":"currency","currency":"EUR","currencyDisplay":"code","minimumIntegerDigits":12,"minimumFractionDigits":0,"maximumFractionDigits":2,"useGrouping":true},"type":"number"}'
+          class="oj-form-control-text-align-start oj-form-control-full-width" id="salary"></oj-input-number>
+        <oj-input-text value="{{ $variables.employee.picture }}" label-hint="picture"></oj-input-text>
+      </oj-form-layout>
+    </oj-validation-group>
+  </oj-sp-simple-create-edit>
+  <oj-sp-message-unsaved-changes id="dirtyDataWarningDialog"
+    on-oj-sp-discard-changes="[[ $listeners.confirmYesOjAction ]]" on-oj-sp-cancel="[[ $listeners.confirmNoOjAction ]]"></oj-sp-message-unsaved-changes>
+</div>
+<div class="oj-flex">
+  <oj-toolbar id="oj-toolbar-for-oj-form-layout-1777832857-1" chroming="solid" class="oj-flex-item oj-sm-12 oj-md-12">
+    <oj-button disabled="[[ $variables.createEmployeeChainInProgress ]]"
+      on-oj-action="[[$listeners.saveButtonClicked]]">Save</oj-button>
+  </oj-toolbar>
+</div>

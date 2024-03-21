@@ -1,0 +1,24 @@
+{
+    "backends": {
+        "countries": {
+            "servers": [
+                {
+                    "url": "https://restcountries.com",
+                    "description": "Restcountries Com"
+                }
+            ]
+        },
+        "imagesVB": {
+            "servers": [
+                {
+                    "url": "https://g9051959400a6d8-sandbox.adb.eu-frankfurt-1.oraclecloudapps.com/ords/admin/image/visualbuilder/",
+                    "description": "Ords Admin Image",
+                    "x-vb": {
+                        "forceProxy": "always",
+                        "anonymousAccess": true
+                    }
+                }
+            ]
+        }
+      }
+}

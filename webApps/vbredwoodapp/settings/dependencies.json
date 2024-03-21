@@ -1,0 +1,21 @@
+{
+  "component-dependencies": {
+    "oj-sp": {
+      "version": "2310.0.1",
+      "components": {
+        "smart-search-page": "2310.0.1",
+        "collection-container": "2310.0.1",
+        "list-item-template": "2310.0.1",
+        "simple-create-edit": "2310.0.1",
+        "message-unsaved-changes": "2310.0.1",
+        "welcome-page": "2310.0.1"
+      }
+    },
+    "oj-dynamic": {
+      "version": "14.1.2",
+      "components": {
+        "form": "14.1.2"
+      }
+    }
+  }
+ }

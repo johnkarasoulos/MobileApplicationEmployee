@@ -1,0 +1,43 @@
+{
+    "description": "",
+    "routerFlow": "main",
+    "variables": {
+    },
+    "metadata": {},
+    "types": {
+    },
+    "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chain": "ButtonActionChain"
+        }
+      ]
+    },
+    "vbBeforeAppInstallPrompt": {
+      "chains": [
+        {
+          "parameters": {
+            "event": "{{ $event }}"
+          },
+          "chain": "installApp"
+        }
+      ]
+    }
+
+    },
+    "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-dialog": {
+        "path": "ojs/ojdialog"
+      },
+      "oj-text-area": {
+        "path": "ojs/ojinputtext"
+      }
+    }
+    },
+    "translations": {}
+  }

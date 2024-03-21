@@ -1,0 +1,119 @@
+{
+  "title": "Create Employee",
+  "description": "Creates new Employee",
+  "variables": {
+    "createEmployeeChainInProgress": {
+      "type": "boolean",
+      "defaultValue": false
+    },
+    "employee": {
+      "type": "createEmployeeRequest"
+    }
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.createEmployeeRequest": {
+      "endpoint": "create_Employee",
+      "service": "businessObjects",
+      "path": "request"
+    },
+    "businessObjectsServiceErrorResponseType": {
+      "body": {
+        "status": "string",
+        "title": "string",
+        "o:errorDetails": [
+          {
+            "detail": "string",
+            "o:errorCode": "string"
+          }
+        ]
+      },
+      "status": "number"
+    },
+    "createEmployeeRequest": {
+      "country": "string",
+      "email": "string",
+      "hireDate": "string",
+      "name": "string",
+      "picture": "string"
+    }
+  },
+  "eventListeners": {
+    "backButtonClicked": {
+      "chains": [
+        {
+          "chain": "goBackChain"
+        }
+      ]
+    },
+    "buttonAction": {
+      "chains": [
+        {
+          "chain": "ButtonActionChain1"
+        }
+      ]
+    },
+    "cameraFilePickerSelect": {
+      "chains": [
+        {
+          "chain": "CameraFilePickerSelectChain",
+          "parameters": {
+            "files": "[[ $event.detail.files ]]"
+          }
+        }
+      ]
+    },
+    "cameraFilePickerSelect2": {
+      "chains": [
+        {
+          "chain": "CameraFilePickerSelectChain2",
+          "parameters": {
+            "files": "[[ Array.prototype.slice.call($event.detail.files) ]]"
+          }
+        }
+      ]
+    },
+    "saveButtonClicked": {
+      "chains": [
+        {
+          "chain": "createEmployeeChain"
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-avatar": {
+        "path": "ojs/ojavatar"
+      },
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-file-picker": {
+        "path": "ojs/ojfilepicker"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-input-date": {
+        "path": "ojs/ojdatetimepicker"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-toolbar": {
+        "path": "ojs/ojtoolbar"
+      },
+      "oj-validation-group": {
+        "path": "ojs/ojvalidationgroup"
+      }
+
+    },
+    "modules": {
+      "ojValidationBase": {
+        "path": "ojs/ojvalidation-base"
+      }
+    }
+  }
+}

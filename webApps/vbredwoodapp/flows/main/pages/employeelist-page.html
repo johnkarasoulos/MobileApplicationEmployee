@@ -1,0 +1,32 @@
+<oj-sp-welcome-page id="oj-sp-wp1" display-options.mobile-image="[[ $page.variables.mobileImage ]]"
+  display-options.responsive-padding="on" page-title="Employees" overline-text="List of employees"
+  background-color="dark-teal" primary-action.label="Create New Employee"
+  on-sp-primary-action="[[$listeners.ojSpWp1SpPrimaryAction]]">
+  <oj-list-view data="[[$variables.employeeListSDP]]" id="oj-list-view-241630953-1" class="oj-listview-full-width"
+    selection-mode="single" on-first-selected-item-changed="[[ $listeners.oj_list_view_241630953_1SelectionChanged ]]">
+    <template slot="itemTemplate">
+      <li class="oj-swipeactions-container">
+        <oj-swipe-actions class="oj-listview-item-layout" on-oj-action="[[$listeners.ojSwipeActionsPerformed]]">
+          <oj-sp-list-item-template
+            columns="[[ [{ primaryText: $current.data.name, secondaryText: $current.data.email, tertiaryText: $current.data.country, avatar: { src: $current.data.picture } }, { primaryText: $current.data.hireDate }, { primaryText: $current.data.salary }] ]]"
+            badge.position="trailing"></oj-sp-list-item-template>
+          <template slot="end">
+            <oj-option value="delete">
+              <oj-bind-text value="delete"></oj-bind-text>
+              <span slot="startIcon" style="width: auto;" class="oj-ux-ico-delete-all"></span>
+            </oj-option>
+          </template>
+        </oj-swipe-actions>
+      </li>
+    </template>
+  </oj-list-view>
+
+</oj-sp-welcome-page>
+<div class="oj-flex">
+  <oj-toolbar id="oj-toolbar-for-oj-list-view-241630953-1" chroming="solid" class="oj-flex-item oj-sm-12 oj-md-12">
+    <oj-button disabled="[[ $variables.oj_list_view_241630953_1SelectedId === '' ]]"
+      on-oj-action="[[$listeners.editEmployeeButtonClicked]]">Edit</oj-button>
+    <oj-button disabled="[[ $variables.oj_list_view_241630953_1SelectedId === '' ]]"
+      on-oj-action="[[$listeners.deleteEmployeeButtonClicked]]">Delete Employee</oj-button>
+  </oj-toolbar>
+</div>

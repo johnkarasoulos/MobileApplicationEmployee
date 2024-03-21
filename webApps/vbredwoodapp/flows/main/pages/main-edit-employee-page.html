@@ -1,0 +1,19 @@
+<div class="oj-flex">
+  <h1 class="oj-flex-item oj-sm-12 oj-md-12">Edit Employee</h1>
+</div>
+<div class="oj-flex">
+  <oj-validation-group id="validation-group" class="oj-flex-item oj-sm-12 oj-md-12">
+    <oj-form-layout class="oj-formlayout-full-width" label-edge="start">
+      <oj-input-text value="{{ $variables.employee.name }}" label-hint="name"></oj-input-text>
+      <oj-input-text value="{{ $variables.employee.picture }}" label-hint="picture"></oj-input-text>
+      <oj-input-text value="{{ $variables.employee.email }}" label-hint="email"></oj-input-text>
+      <oj-input-number value="{{ $variables.employee.salary }}" label-hint="salary"></oj-input-number>
+    </oj-form-layout>
+  </oj-validation-group>
+</div>
+<div class="oj-flex">
+  <oj-toolbar chroming="solid" class="oj-flex-item oj-sm-12 oj-md-12">
+    <oj-button on-oj-action="[[$listeners.backButtonClicked]]">Cancel</oj-button>
+    <oj-button on-oj-action="[[$listeners.saveButtonClicked]]" disabled="[[ $variables.saveEmployeeChainInProgress ]]">Save</oj-button>
+  </oj-toolbar>
+</div>

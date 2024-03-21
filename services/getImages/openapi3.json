@@ -1,0 +1,111 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Ords Admin Image",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "vb-catalog://backends/imagesVB"
+        }
+    ],
+    "paths": {
+        "/": {
+
+            "post": {
+                "operationId": "post",
+                "parameters": [
+                    {
+                        "name": "title",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "x-vb": {
+                            "defaultValue": "image"
+                        }
+                    },
+                    {
+                        "name": "content-type",
+                        "in": "header",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "x-vb": {
+                            "defaultValue": "image/jpeg"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/octet-stream": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostRequest"
+                            }
+                        },
+                        "image/jpeg": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostRequest1"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "Default response",
+                        "content": {
+                            "image/jpeg": {}
+                        }
+                    }
+                },
+                "x-vb": {
+                    "actionHint": "create"
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Get": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "integer"
+                                },
+                                "title": {
+                                    "type": "string"
+                                },
+                                "content_type": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "first": {
+                        "type": "object",
+                        "properties": {
+                            "$ref": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            },
+            "PostRequest": {
+                "type": "string",
+                "format": "binary"
+            },
+            "PostRequest1": {
+                "type": "string",
+                "format": "binary"
+            }
+        }
+    }
+}

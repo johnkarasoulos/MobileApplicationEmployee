@@ -1,0 +1,109 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "employeeListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "businessObjects/getall_Employee",
+        "keyAttributes": "id",
+        "itemsPath": "items",
+        "responseType": "getallEmployeeResponse",
+        "filterCriterion": {
+          "op": "$co",
+          "attribute": "name",
+          "value": "{{ $variables.employeeSearch }}"
+        }
+      }
+    },
+    "employeeListSDP2": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "businessObjects/getall_Employee",
+        "keyAttributes": "id",
+        "itemsPath": "items",
+        "responseType": "getallEmployeeResponse2",
+        "filterCriterion": {
+          "op": "$co",
+          "attribute": "name",
+          "value": "{{ $variables.employeeSearch }}"
+        }
+      }
+    },
+    "employeeSearch": {
+      "type": "string"
+    }
+
+  },
+  "metadata": {},
+  "types": {
+    "@decorators.getallEmployeeResponse": {
+      "endpoint": "getall_Employee",
+      "service": "businessObjects",
+      "path": "response"
+    },
+    "@decorators.getallEmployeeResponse2": {
+      "endpoint": "getall_Employee",
+      "service": "businessObjects",
+      "path": "response"
+    },
+    "getallEmployeeResponse": {
+      "items": [
+        {
+          "id": "number",
+          "links": [
+            {
+              "name": "string"
+            }
+          ],
+          "picture": "string",
+          "salary": "number"
+        }
+      ]
+    },
+    "getallEmployeeResponse2": {
+      "items": [
+        {
+          "email": "string",
+          "hireDate": "string",
+          "id": "number",
+          "name": "string",
+          "picture": "string",
+          "salary": "number"
+        }
+      ]
+    }
+  },
+  "eventListeners": {
+    "smartSearchPageTemplateSpPrimaryAction": {
+      "chains": [
+        {
+          "chain": "SmartSearchPageTemplateSpPrimaryActionChain"
+        }
+      ]
+    }
+  },
+  "imports": {
+    "components": {
+      "oj-input-search": {
+        "path": "ojs/ojinputsearch"
+      },
+      "oj-list-item-layout": {
+        "path": "ojs/ojlistitemlayout"
+      },
+      "oj-list-view": {
+        "path": "ojs/ojlistview"
+      },
+      "oj-sp-collection-container": {
+        "path": "oj-sp/collection-container/loader"
+      },
+      "oj-sp-list-item-template": {
+        "path": "oj-sp/list-item-template/loader"
+      },
+      "oj-sp-smart-search-page": {
+        "path": "oj-sp/smart-search-page/loader"
+      }
+
+    }
+  }
+}
